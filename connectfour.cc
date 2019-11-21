@@ -138,7 +138,8 @@ int main() {
        do {
         cout << "Enter which column to place your token: ";
         cin >> col;
-      } while((col<1 || col >7) && game_board[0][col-1] == 0);
+      } while((col<1 || col >7) || game_board[0][col-1] != 0);
+      
       drop_token(col, 2, game_board);
       next_turn(player_turn);
     } else {
@@ -151,7 +152,9 @@ int main() {
         cout << "I drop my piece into column " << block << endl;
         drop_token(block, 1, game_board);
       } else {
-        randomcol = 1 + (random() % 7);
+        do {
+          randomcol = 1 + (random() % 7);
+        } while (game_board[0][randomcol-1] != 0);
         cout << "I drop my piece into column " << randomcol << endl;
         drop_token(randomcol, 1, game_board);
       }
