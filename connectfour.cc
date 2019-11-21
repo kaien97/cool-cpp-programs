@@ -1,5 +1,6 @@
 // Connect 4 is played on a 6 x 7 grid
 // This program plays Connect 4 against a human player and attempts to win
+// TODO: create a strategy for the computer
 
 #include <iostream>
 #include <algorithm>
